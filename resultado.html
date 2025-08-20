@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado da Votação</title>
+  <link rel="shortcut icon" href="ume.ico" type="image/x-icon"/>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    .resultado {
+      display: inline-block; margin: 15px; padding: 20px; border-radius: 10px;
+      background: #f4f4f4; font-size: 20px; min-width: 220px;
+    }
+    .c1 { border: 3px solid #3498db; }
+    .c2 { border: 3px solid #e74c3c; }  
+    .c3 { border: 3px solid #2ecc71; }
+    .c4 { border: 3px solid #F2B646; }
+    button {
+      margin-top: 30px; padding: 10px 20px; font-size: 18px;
+      border: none; border-radius: 8px; cursor: pointer;
+      background: #555; color: white;
+    }
+    button:hover { background: #333; }
+  </style>
+</head>
+<body>
+  <h1>Resultado Final</h1>
+
+  <div class="resultado c1">Ação Jovem: <span id="c1">0</span></div>
+  <div class="resultado c2">Guará Vermelho: <span id="c2">0</span></div>
+  <div class="resultado c3">M.E.P.: <span id="c3">0</span></div>
+  <div class="resultado c4">Fênix: <span id="c4">0</span></div>
+
+  <br>
+  <button onclick="zerarVotos()">🔄 Zerar Votos</button>
+
+  <script>
+    function lerVotos() {
+      return JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0 };
+    }
+
+    function mostrarResultados() {
+      const votos = lerVotos();
+      document.getElementById("c1").innerText = votos.c1;
+      document.getElementById("c2").innerText = votos.c2;
+      document.getElementById("c3").innerText = votos.c3;
+      document.getElementById("c4").innerText = votos.c4;
+    }
+
+    function zerarVotos() {
+      if (confirm("Tem certeza que deseja zerar todos os votos?")) {
+        localStorage.setItem("votos", JSON.stringify({ c1: 0, c2: 0, c3: 0, c4: 0 }));
+        mostrarResultados();
+        alert("Todos os votos foram zerados!");
+      }
+    }
+
+    // Atualiza os números ao abrir a página
+    document.addEventListener('DOMContentLoaded', mostrarResultados);
+  </script>
+</body>
+</html>

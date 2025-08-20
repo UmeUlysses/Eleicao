@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Eleição Grêmio 2025</title>
+   <link rel="shortcut icon" href="ume.ico" type="image/x-icon"/>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px;
+          text-transform: uppercase;
+           background-color:color-mix(in srgb,  #196BF0, white 80%);
+ }
+
+
+    button {
+      margin: 10px; padding: 15px 25px; font-size: 20px; cursor: pointer;
+      border-radius: 10px; border: none; color: white; width: 250px; height: 80px;
+      text-transform: uppercase;
+      font-weight: bold;
+    
+    }
+    .c1 { background-color: #3498db; }
+    .c2 { background-color: #e74c3c; }
+    .c3 { background-color: #2ecc71; }
+    .c4 { background-color: #F2B646; }
+    button:hover { opacity: 0.8; }
+
+  </style>
+</head>
+<body>
+
+  <audio id="somVoto" src="urna.mp3" preload="auto"></audio>
+  <h1>Ume Dr. Ulysses Guimarães</h1>
+  <h2>Eleição Grêmio 2025</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <button class="c1" onclick="votar('c1')">Ação Jovem</button>
+  <button class="c2" onclick="votar('c2')">Guará Vermelho</button>
+  <button class="c3" onclick="votar('c3')">M.E.P</button>
+  <button class="c4" onclick="votar('c4')">Fênix</button>
+
+  <!--<p><a href="resultado.html">Ver Resultado Final</a></p>
+
+  <script>
+    function votar(candidato) {
+      let votos = JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0 };
+      votos[candidato] += 1;
+      localStorage.setItem("votos", JSON.stringify(votos));
+      alert("Voto computado com sucesso!");
+    }
+  </script>-->
+
+  <script>
+  function votar(candidato) {
+    // 1) Garante estrutura completa e sem erro
+    const votos = JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0 };
+    votos[candidato] = (votos[candidato] || 0) + 1;
+    localStorage.setItem("votos", JSON.stringify(votos));
+
+    // 2) Toca o som (usa o ID do <audio>, não o nome do arquivo)
+    const som = document.getElementById("somVoto");
+    if (som) {
+      try {
+        som.currentTime = 0; // reinicia, caso já tenha tocado
+        som.play();
+      } catch (e) {
+        console.error("Falha ao tocar som:", e);
+      }
+    }
+
+    // 3) Mostra a mensagem (quase ao mesmo tempo do play)
+    alert("Voto computado com sucesso!");
+  }
+</script>
+
+
+  
+</body>
+</html>
