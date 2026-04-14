@@ -10,10 +10,9 @@
            background-color:color-mix(in srgb,  #196BF0, white 80%);
  }
 
-
     button {
-      margin: 10px; padding: 15px 25px; font-size: 25px; cursor: pointer;
-      border-radius: 10px; border: none; color: white; width: 340px; height: 80px;
+      margin: 10px; padding: 15px 25px; font-size: 20px; cursor: pointer;
+      border-radius: 10px; border: none; color: rgb(66, 63, 63); width: 500px; height: 80px;
       text-transform: uppercase;
       font-weight: bold;
     
@@ -22,6 +21,11 @@
     .c2 { background-color: #e74c3c; }
     .c3 { background-color: #2ecc71; }
     .c4 { background-color: #F2B646; }
+    .c5 { background-color: #F5C8B8; }
+    .c6 { background-color: #F54998; }
+    .c7 { background-color: #36F5CD; }
+    .c8 { background-color: #CDC1F5; }
+    .c9 { background-color: #F5D749; }
     button:hover { opacity: 0.8; }
 
   </style>
@@ -40,17 +44,25 @@
 <br>
 <br>
 <br>
-  <button class="c1" onclick="votar('c1')">1 - Ação Jovem</button>
-  <button class="c2" onclick="votar('c2')">2 - Guará Vermelho</button>
-  <button class="c3" onclick="votar('c3')">3 - M.E.P</button>
-  <button class="c4" onclick="votar('c4')">4 - Fênix</button>
+  <button class="c1" onclick="votar('c1')">1 - Chapa nova era ulysses</button>
+  <button class="c2" onclick="votar('c2')">2 - Starlight</button>
+  <button class="c3" onclick="votar('c3')">3 - Unidos para educação e tecnologia</button>
+  <button class="c4" onclick="votar('c4')">4 - Sempre unidos</button>
+  <button class="c5" onclick="votar('c5')">5 - GAP</button>
+  <button class="c6" onclick="votar('c6')">6 - Juntos para o futuro</button>
+  <button class="c7" onclick="votar('c7')">7 - Chapa juntos somos +</button>
+  <button class="c8" onclick="votar('c8')">8 - MEP </button>
+  <button class="c9" onclick="votar('c9')">9 - Nações unidas </button>
+<br>
+<br>
+<br>
 
   <a href="resultado.html">Ver Resultado Final</a>
 
   <script>
   function votar(candidato) {
     // 1) Garante estrutura completa e sem erro
-    const votos = JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0 };
+    const votos = JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0, c5:0, c6:0, c7:0, c8:0, c9:0 };
     votos[candidato] = (votos[candidato] || 0) + 1;
     localStorage.setItem("votos", JSON.stringify(votos));
 
@@ -70,11 +82,11 @@
   }
 </script>
 
-
   
 </body>
 
 </html>
+
 
 
 
