@@ -57,27 +57,27 @@
 <br>
 <br>
 
-  <a href="resultado.html">Ver Resultado Final</a>
+  <!--<a href="resultado.html">Ver Resultado Final</a>-->
 
   <script>
   function votar(candidato) {
-    // 1) Garante estrutura completa e sem erro
+   
     const votos = JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0, c5:0, c6:0, c7:0, c8:0, c9:0 };
     votos[candidato] = (votos[candidato] || 0) + 1;
     localStorage.setItem("votos", JSON.stringify(votos));
 
-    // 2) Toca o som (usa o ID do <audio>, não o nome do arquivo)
+  
     const som = document.getElementById("somVoto");
     if (som) {
       try {
-        som.currentTime = 0; // reinicia, caso já tenha tocado
+        som.currentTime = 0; 
         som.play();
       } catch (e) {
         console.error("Falha ao tocar som:", e);
       }
     }
 
-    // 3) Mostra a mensagem (quase ao mesmo tempo do play)
+    
     alert("Voto computado com sucesso!");
   }
 </script>
