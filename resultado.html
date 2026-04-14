@@ -14,6 +14,12 @@
     .c2 { border: 3px solid #e74c3c; }  
     .c3 { border: 3px solid #2ecc71; }
     .c4 { border: 3px solid #F2B646; }
+    .c5 { border: 3px solid #F5C8B8; }
+    .c6 { border: 3px solid #F54998; }
+    .c7 { border: 3px solid #36F5CD; }
+    .c8 { border: 3px solid #CDC1F5; }
+    .c9 { border: 3px solid #F5D749; }
+
     button {
       margin-top: 30px; padding: 10px 20px; font-size: 18px;
       border: none; border-radius: 8px; cursor: pointer;
@@ -25,30 +31,40 @@
 <body>
   <h1>Resultado Final</h1>
 
-  <div class="resultado c1">Ação Jovem: <span id="c1">0</span></div>
-  <div class="resultado c2">Guará Vermelho: <span id="c2">0</span></div>
-  <div class="resultado c3">M.E.P.: <span id="c3">0</span></div>
-  <div class="resultado c4">Fênix: <span id="c4">0</span></div>
+  <div class="resultado c1">Chapa Nova Era Ulysses: <span id="c1">0</span></div>
+  <div class="resultado c2">Starlight: <span id="c2">0</span></div>
+  <div class="resultado c3">Unidos para educação e tecnologia: <span id="c3">0</span></div>
+  <div class="resultado c4">Sempre unidos: <span id="c4">0</span></div>
+  <div class="resultado c5">GAP: <span id="c5">0</span></div>
+  <div class="resultado c6">Juntos para o futuro: <span id="c6">0</span></div>
+  <div class="resultado c7">Chapa juntos somos +: <span id="c7">0</span></div>
+  <div class="resultado c8">MEP: <span id="c8">0</span></div>
+  <div class="resultado c9">Nações unidas: <span id="c9">0</span></div>
 
   <br>
- <!--<button onclick="zerarVotos()">🔄 Zerar Votos</button>-->
+ <button onclick="zerarVotos()">🔄 Zerar Votos</button>
 
   <script>
     function lerVotos() {
-      return JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0 };
+      return JSON.parse(localStorage.getItem("votos")) || { c1: 0, c2: 0, c3: 0, c4: 0, c5:0, c6:0, c7:0, c8:0, c9:0 };
     }
 
     function mostrarResultados() {
       const votos = lerVotos();
       document.getElementById("c1").innerText = votos.c1;
-      document.getElementById("c2").innerText = votos.c2;
+      document.getElementById("c2").innerText = votos.c2; 
       document.getElementById("c3").innerText = votos.c3;
       document.getElementById("c4").innerText = votos.c4;
+      document.getElementById("c5").innerText = votos.c5;
+      document.getElementById("c6").innerText = votos.c6;
+      document.getElementById("c7").innerText = votos.c7;
+      document.getElementById("c8").innerText = votos.c8;
+      document.getElementById("c9").innerText = votos.c9;
     }
 
     function zerarVotos() {
       if (confirm("Tem certeza que deseja zerar todos os votos?")) {
-        localStorage.setItem("votos", JSON.stringify({ c1: 0, c2: 0, c3: 0, c4: 0 }));
+        localStorage.setItem("votos", JSON.stringify({ c1: 0, c2: 0, c3: 0, c4: 0, c5: 0, c6: 0, c7: 0, c8:0,    }));
         mostrarResultados();
         alert("Todos os votos foram zerados!");
       }
@@ -60,5 +76,6 @@
 </body>
 
 </html>
+
 
 
